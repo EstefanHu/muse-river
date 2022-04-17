@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useGlobalState } from '../../lib/state';
 
-import Loading from '../../atoms/shared/Loading';
-import TemplateWrapper from '../../atoms/layout/TemplateWrapper';
+import Loading from '../atoms/shared/Loading';
+import TemplateWrapper from '../atoms/layout/TemplateWrapper';
 import AppHeader from '../organisms/app/AppHeader';
 import AppNav from '../organisms/app/AppNav';
 
