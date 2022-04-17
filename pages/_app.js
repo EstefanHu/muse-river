@@ -1,7 +1,17 @@
-import '../styles/globals.css'
+import React from 'react';
+import firebase from 'firebase/compat/app';
+import '../lib/globals.css';
+import { StateProvider } from '../lib/state';
+import { clientCredentials } from '../lib/firebaseCredentials';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const theRiver = ({ Component, pageProps }) => {
+  if (!firebase.apps.length) firebase.initializeApp(clientCredentials);
 
-export default MyApp
+  return (
+    <StateProvider>
+      <Component {...pageProps} />
+    </StateProvider>
+  )
+};
+
+export default theRiver
