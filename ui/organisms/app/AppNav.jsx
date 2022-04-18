@@ -5,12 +5,10 @@ import { FaPencilAlt } from 'react-icons/fa';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
-import { useGlobalState } from '../../../lib/state';
 import NavItem from '../../atoms/shared/NavItem';
 
 const StyledLeftNav = styled.nav`
     position: fixed;
-    // left: ${({ isShowing }) => isShowing ? '0' : '-210'}px;
     left: 0;
     top: 0px;
     bottom: 0;
@@ -37,28 +35,22 @@ const LINKS = [
     { href: '/profile', icon: <CgProfile />, label: 'profile' },
 ];
 
-const LeftNav = () => {
-    const { state: { auth: { user } } } = useGlobalState();
-
-    return (
-        <StyledLeftNav isShowing={!!user}>
-            {LINKS.map((l) => (
-                <NavItem
-                    key={l.label}
-                    href={l.href}
-                >
-                    {l.icon}
-                    {l.label}
-                </NavItem>
-            ))}
+const LeftNav = () => (
+    <StyledLeftNav>
+        {LINKS.map((l) => (
             <NavItem
-                href='/settings'
+                key={l.label}
+                href={l.href}
             >
-                <IoSettingsOutline />
-                settings
+                {l.icon}
+                {l.label}
             </NavItem>
-        </StyledLeftNav>
-    )
-};
+        ))}
+        <NavItem href='/settings'>
+            <IoSettingsOutline />
+            settings
+        </NavItem>
+    </StyledLeftNav>
+);
 
 export default LeftNav;

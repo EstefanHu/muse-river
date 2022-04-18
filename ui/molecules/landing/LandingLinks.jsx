@@ -18,7 +18,7 @@ const StyledLandingLinks = styled.span`
 
 const LandingLinks = () => {
     const {
-        state: { auth: { user, isAuthing } },
+        state: { auth: { user } },
         startAuthing
     } = useGlobalState();
     const router = useRouter();

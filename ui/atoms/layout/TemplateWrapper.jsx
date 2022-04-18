@@ -5,7 +5,7 @@ import { useGlobalState } from '../../../lib/state';
 
 const StyledWrapper = styled.main`
     padding-top: 70px;
-    height: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
