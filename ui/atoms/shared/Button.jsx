@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 const StyledButton = styled.button`
+    display: flex;
+    align-items: center;
     border: 2px solid ${({ theme }) => theme.redPrimary};
     background-color: ${({ theme }) => theme.redPrimary};
     color: white;
@@ -20,11 +22,12 @@ const StyledButton = styled.button`
     ${({ style }) => style}
 `;
 
-const Button = ({ onClick, label, style }) => (
+const Button = ({ onClick, label = null, icon = null, style }) => (
     <StyledButton
         style={style}
         onClick={onClick}
     >
+        {icon}
         {label}
     </StyledButton>
 );

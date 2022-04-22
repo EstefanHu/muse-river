@@ -30,9 +30,9 @@ const StyledLeftNav = styled.nav`
 `;
 
 const LINKS = [
-    { href: '/home', icon: <MdOutlineSpaceDashboard />, label: 'home' },
-    { href: '/write', icon: <FaPencilAlt />, label: 'write' },
-    { href: '/profile', icon: <CgProfile />, label: 'profile' },
+    { href: '/app', icon: <MdOutlineSpaceDashboard />, label: 'home' },
+    { href: '/app/write', icon: <FaPencilAlt />, label: 'write' },
+    { href: '/app/profile', icon: <CgProfile />, label: 'profile' },
 ];
 
 const LeftNav = () => (
