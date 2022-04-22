@@ -12,7 +12,6 @@ const Write = () => {
     return (
         <AppTemplate>
             <CreateWidget />
-            <h1>hello</h1>
         </AppTemplate>
     )
 };

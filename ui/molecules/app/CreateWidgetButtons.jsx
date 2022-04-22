@@ -26,7 +26,7 @@ const CreateWidgetButtons = () => (
             <CreateButton
                 key={label}
                 onClick={() => {
-                    window.open(`/app/write/${label.toLowerCase()}`);
+                    window.open(`/create?type=${label.toLowerCase()}`);
                     window.opener = null;
                 }}
                 label={label}
