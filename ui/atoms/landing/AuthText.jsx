@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const StyledInputText = styled.input`
+const StyledAuthText = styled.input`
     font-size: 1rem;
     height: 35px;
     width: 100%;
@@ -15,15 +15,15 @@ const StyledInputText = styled.input`
     &:focus { border-color: ${({ theme }) => theme.redPrimary} }
 `;
 
-const InputText = ({ type, value, setValue }) => (
-    <StyledInputText
+const AuthText = ({ type, value, setValue }) => (
+    <StyledAuthText
         type={type}
         value={value}
         onChange={(e) => setValue(e.target.value)}
     />
 );
 
-InputText.propTypes = {
+AuthText.propTypes = {
     /** Input type */
     type: propTypes.oneOf([
         'text',
@@ -42,4 +42,4 @@ InputText.propTypes = {
     setValue: propTypes.func.isRequired
 };
 
-export default InputText;
+export default AuthText;

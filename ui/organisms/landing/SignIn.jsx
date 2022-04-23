@@ -3,50 +3,43 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 import { useGlobalState } from '../../../lib/state';
 
-import FormField from '../../molecules/shared/FormField';
+import FormField from '../../molecules/landing/AuthFormField';
 import H1 from '../../atoms/shared/H1';
-import Submit from '../../atoms/forms/Submit';
+import Submit from '../../atoms/landing/Submit';
 import Note from '../../atoms/shared/Note';
-import ErrorMessage from '../../atoms/forms/ErrorMessage';
+import ErrorMessage from '../../atoms/landing/AuthErrorMessage';
 
-const StyledRegister = styled.form`
+const StyledSignIn = styled.form`
     display: flex;
     flex-direction: column;
 `;
 
-const Register = ({ setHasAccount }) => {
+const SignIn = ({ setHasAccount }) => {
     const {
         state: { auth: { authErrorMessage } },
-        register,
+        signIn,
         endAuthing
     } = useGlobalState()
+    const [state, setState] = useState({ email: '', password: '' });
 
-    const [state, setState] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-
-    const handleRegister = async (e) => {
-        e.preventDefault()
-        await register(state, endAuthing);
-    }
+    const handleSignIn = async (e) => {
+        e.preventDefault();
+        await signIn(state, endAuthing);
+    };
 
     return (
-        <StyledRegister onSubmit={handleRegister}>
-            <H1>Register</H1>
+        <StyledSignIn onSubmit={handleSignIn}>
+            <H1>Sign in</H1>
             <ErrorMessage>{authErrorMessage}</ErrorMessage>
+
             {FIELDS.map((f) => {
-                const name = f.type;
-                const key = f.key;
+                const { key, label, type } = f;
 
                 return (
                     <FormField
                         key={key}
-                        label={f.label}
-                        type={name}
+                        label={label}
+                        type={type}
                         value={state[key]}
                         setValue={(value) => {
                             const newState = state;
@@ -58,52 +51,37 @@ const Register = ({ setHasAccount }) => {
             })}
 
             <Submit
-                label='SIGN UP'
+                label='SIGN IN'
                 style={{ height: '40px', margin: '15px 0px' }}
             />
 
             <Note>
-                Already have an account?
+                Don&#39;t have an account?
                 <button
                     type="button"
-                    onClick={() => setHasAccount(true)}
-                >sign in</button>
+                    onClick={() => setHasAccount(false)}
+                >sign up</button>
             </Note>
-        </StyledRegister>
+        </StyledSignIn>
     );
 };
 
-Register.propTypes = {
+SignIn.propTypes = {
     /** Func to toggle to register */
     setHasAccount: propTypes.func.isRequired
 };
 
 const FIELDS = [
     {
-        key: 'firstName',
-        label: 'first name',
-        type: 'text',
-    },
-    {
-        key: 'lastName',
-        label: 'last name',
-        type: 'text',
-    },
-    {
         key: 'email',
         label: 'email address',
-        type: 'email'
+        type: 'email',
     },
     {
         key: 'password',
         label: 'password',
         type: 'password'
-    },
-    {
-        key: 'confirmPassword',
-        label: 'confirm password',
-        type: 'password'
     }
 ]
 
-export default Register;
+export default SignIn;

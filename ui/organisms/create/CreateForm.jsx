@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useGlobalState } from '../../../lib/state';
 
-import FormField from '../../molecules/shared/FormField';
+import FormField from '../../molecules/landing/AuthFormField';
 
 const StyledCreateForm = styled.form`
     display: flex;

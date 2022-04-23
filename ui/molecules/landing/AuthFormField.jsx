@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import propTypes from 'prop-types';
 
 import Label from '../../atoms/shared/Label';
-import InputText from '../../atoms/forms/InputText'
-import InputTextarea from '../../atoms/forms/InputTextarea';
+import AuthText from '../../atoms/landing/AuthText'
+import AuthTextarea from '../../atoms/landing/AuthTextarea';
 
-const StyledFormField = styled.span`
+const StyledAuthFormField = styled.span`
     margin-bottom: 10px;
 `;
 
-const FormField = ({ label, type, value, setValue }) => {
+const AuthFormField = ({ label, type, value, setValue }) => {
     const renderInput = (type) => {
         switch (type) {
             case 'text':
@@ -19,14 +19,14 @@ const FormField = ({ label, type, value, setValue }) => {
             case 'number':
             case 'tel':
             case 'url':
-                return <InputText
+                return <AuthText
                     type={type}
                     value={value}
                     setValue={setValue}
                 />;
 
             case 'textarea':
-                return <InputTextarea
+                return <AuthTextarea
                     value={value}
                     setValue={setValue}
                 />;
@@ -37,14 +37,14 @@ const FormField = ({ label, type, value, setValue }) => {
     };
 
     return (
-        <StyledFormField>
+        <StyledAuthFormField>
             <Label text={label} />
             {renderInput(type)}
-        </StyledFormField>
+        </StyledAuthFormField>
     );
 };
 
-FormField.propTypes = {
+AuthFormField.propTypes = {
     /** Label text display */
     label: propTypes.string.isRequired,
     /** Type of input */
@@ -55,4 +55,4 @@ FormField.propTypes = {
     setValue: propTypes.func.isRequired
 };
 
-export default FormField;
+export default AuthFormField;

@@ -1,6 +1,6 @@
 import Header from '../../molecules/layout/Header';
 import LandingLinks from '../../molecules/landing/LandingLinks';
-import AuthModal from '../modals/AuthModal';
+import AuthModal from './AuthModal';
 
 const LandingHeader = () => {
 
