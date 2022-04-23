@@ -1,22 +1,14 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const StyledInputText = styled.input`
+const StyledCreateInput = styled.input`
     font-size: 1rem;
-    height: 35px;
+    height: 40px;
     width: 100%;
-    margin-top: 3px;
-    padding: 0 8px;
-    border: 2px solid lightgrey;
-    border-radius: 5px;
-    outline: none;
-    transition: 0.3s;
-    &:hover { border-color: grey; }
-    &:focus { border-color: ${({ theme }) => theme.redPrimary} }
 `;
 
-const InputText = ({ type, value, setValue }) => (
-    <StyledInputText
+const CreateInput = ({ type, value, setValue }) => (
+    <StyledCreateInput
         type={type}
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -42,4 +34,4 @@ InputText.propTypes = {
     setValue: propTypes.func.isRequired
 };
 
-export default InputText;
+export default CreateInput;

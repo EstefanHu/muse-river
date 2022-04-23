@@ -8,7 +8,7 @@ import TemplateWrapper from '../atoms/layout/TemplateWrapper';
 import CreateHeader from '../organisms/create/CreateHeader';
 
 const StyledCreateTemplate = styled.div`
-    1200px;
+    width: 800px;
 `;
 
 const CreateTemplate = ({ children }) => {
@@ -27,6 +27,9 @@ const CreateTemplate = ({ children }) => {
     return (
         <TemplateWrapper>
             <CreateHeader />
+            <StyledCreateTemplate>
+                {children}
+            </StyledCreateTemplate>
         </TemplateWrapper>
     )
 };
