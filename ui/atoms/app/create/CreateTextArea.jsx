@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-const StyledCreateTextarea = styled.textarea`
+const StyledCreateTextArea = styled.textarea`
     font-size: 1rem;
     width: 100%;
     margin-top: 3px;
@@ -14,18 +14,18 @@ const StyledCreateTextarea = styled.textarea`
     &:focus { border-color: ${({ theme }) => theme.redPrimary} }
 `;
 
-const CreateTextarea = ({ value, setValue }) => (
-    <StyledCreateTextarea
+const CreateTextArea = ({ value, setValue }) => (
+    <StyledCreateTextArea
         value={value}
         onChange={(e) => setValue(e.target.value)}
     >
         add text here
-    </StyledCreateTextarea>
+    </StyledCreateTextArea>
 );
 
-CreateTextarea.prototype = {
+CreateTextArea.prototype = {
     value: propTypes.string.isRequired,
     setValue: propTypes.func.isRequired
 };
 
-export default CreateTextarea;
+export default CreateTextArea;

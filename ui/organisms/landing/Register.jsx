@@ -38,24 +38,19 @@ const Register = ({ setHasAccount }) => {
         <StyledRegister onSubmit={handleRegister}>
             <H1>Register</H1>
             <ErrorMessage>{authErrorMessage}</ErrorMessage>
-            {FIELDS.map((f) => {
-                const name = f.type;
-                const key = f.key;
-
-                return (
-                    <FormField
-                        key={key}
-                        label={f.label}
-                        type={name}
-                        value={state[key]}
-                        setValue={(value) => {
-                            const newState = state;
-                            newState[key] = value;
-                            setState({ ...newState });
-                        }}
-                    />
-                )
-            })}
+            {FIELDS.map(({ key, label, type }) => (
+                <FormField
+                    key={key}
+                    label={label}
+                    type={type}
+                    value={state[key]}
+                    setValue={(value) => {
+                        const newState = state;
+                        newState[key] = value;
+                        setState({ ...newState });
+                    }}
+                />
+            ))}
 
             <Submit
                 label='SIGN UP'

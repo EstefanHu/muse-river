@@ -4,9 +4,9 @@ import { useGlobalState } from '../../../../lib/state';
 
 import CreateForm from '../../../atoms/app/create/CreateForm';
 
-const StyledDevotionForm = styled.div``;
+const StyledFormStory = styled.div``;
 
-const DevotionForm = () => {
+const FormStory = () => {
 
     return (
         <CreateForm>
@@ -15,4 +15,4 @@ const DevotionForm = () => {
     )
 };
 
-export default DevotionForm;
+export default FormStory;
