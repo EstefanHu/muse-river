@@ -1,32 +1,31 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
 
-import CreateForm from '../../../atoms/app/create/CreateForm';
 import CreateFormField from '../../../molecules/app/create/CreateFormField';
-import FormDevotion from './FormDevotion';
-import FormPoem from './FormPoem';
-import FormStory from './FormStory';
+
+const StyledPostCreator = styled.form`
+    display: flex;
+    flex-direction: column;
+    background-color: ${({ theme }) => theme.componentBackground};
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    border-radius: ${({ theme }) => theme.componentBorderRadius};
+    padding: 20px 30px;
+    margin-top: 25px;
+`;
 
 const PostCreator = () => {
     const [formData, setFormData] = useState({});
     const router = useRouter();
     const { type } = router.query;
 
-    // const renderForm = (type) => {
-    //     switch (type) {
-    //         case 'devotion':
-    //             return <FormDevotion />;
-    //         case 'poem':
-    //             return <FormPoem />;
-    //         case 'story':
-    //             return <FormStory />;
-    //     }
-    // };
-
-    // return renderForm(type);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    }
 
     return (
-        <CreateForm>
+        <StyledPostCreator onSubmit={handleSubmit}>
             {FIELDS[type].map(({ key, label, type }) => (
                 <CreateFormField
                     key={key}
@@ -40,7 +39,8 @@ const PostCreator = () => {
                     }}
                 />
             ))}
-        </CreateForm>
+            <input type="submit" value="sugmit" />
+        </StyledPostCreator>
     )
 };
 
