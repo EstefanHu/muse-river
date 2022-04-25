@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 import { useGlobalState } from '../../../lib/state';
@@ -15,7 +16,12 @@ const StyledWrapper = styled.main`
 `;
 
 const Wrapper = ({ children }) => {
-    const { state: { auth: { user } } } = useGlobalState();
+    const {
+        state: { auth: { user } },
+        checkAuthState
+    } = useGlobalState();
+
+    useEffect(checkAuthState, []);
 
     return <StyledWrapper isCompressed={!!user}>{children}</StyledWrapper>;
 };

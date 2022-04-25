@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
@@ -15,7 +16,8 @@ const StyledMainCreate = styled.div`
     margin-top: 25px;
 `;
 
-const MainCreate = ({ postData, setPostData }) => {
+const MainCreate = () => {
+    const [postData, setPostData] = useState(null);
     const router = useRouter();
     const { step } = router.query;
 
@@ -33,7 +35,7 @@ const MainCreate = ({ postData, setPostData }) => {
                 />;
             default:
                 return;
-        }
+        };
     };
 
     if (!step) return <Loading />;

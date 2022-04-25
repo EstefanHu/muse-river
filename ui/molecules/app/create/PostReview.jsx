@@ -4,18 +4,20 @@ import styled from 'styled-components';
 import { db } from '../../../../lib/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 
+import Post from '../../layout/Post';
+
 const StyledPostReview = styled.form`
 
 `;
 
-const PostReview = () => {
+const PostReview = ({ postData }) => {
     const router = useRouter();
     const { step } = router.query;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const postRef = await addDoc(collection(db, 'test'), formData);
+            const postRef = await addDoc(collection(db, 'test'), postData);
             console.log(postRef);
         } catch (err) {
             console.log(err);
@@ -24,7 +26,7 @@ const PostReview = () => {
 
     return (
         <StyledPostReview onSubmit={handleSubmit}>
-
+            <Post components={postData} />
         </StyledPostReview>
     )
 };

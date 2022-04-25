@@ -14,6 +14,7 @@ const CreateFormField = ({ label, type, value, setValue }) => {
         switch (type) {
             case 'text':
                 return <CreateText
+                    label={label}
                     type={type}
                     value={value}
                     setValue={setValue}
