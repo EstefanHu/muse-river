@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { useGlobalState } from '../../lib/state';
 
@@ -13,16 +11,8 @@ const StyledCreateTemplate = styled.div`
 
 const CreateTemplate = ({ children }) => {
     const { state: { auth: { user } } } = useGlobalState();
-    const [isLoading, setIsLoading] = useState(true);
-    const router = useRouter();
 
-    useEffect(() => {
-        setIsLoading(true)
-        // if (!user) router.push('/');
-        setIsLoading(false);
-    }, [user, router]);
-
-    if (isLoading) return <Loading />;
+    if (!user) return <Loading />;
 
     return (
         <TemplateWrapper>
