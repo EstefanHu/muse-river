@@ -13,7 +13,7 @@ const PostCreator = ({ postData, setPostData }) => {
         const data = {};
         FIELDS[type].forEach(({ key }) => data[key] = '');
         setPostData(data);
-    }, [type, setPostData]);
+    }, [type, setPostData, router]);
 
     if (!postData) return <Loading />;
 

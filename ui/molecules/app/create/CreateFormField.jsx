@@ -21,6 +21,7 @@ const CreateFormField = ({ label, type, value, setValue }) => {
                 />;
             case 'textarea':
                 return <CreateTextArea
+                    label={label}
                     value={value}
                     setValue={setValue}
                 />;

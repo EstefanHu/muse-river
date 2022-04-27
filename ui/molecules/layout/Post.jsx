@@ -4,7 +4,7 @@ import Title from '../../atoms/shared/composition/Title';
 import Paragraph from '../../atoms/shared/composition/Paragraph';
 
 const StyledPost = styled.div`
-    display: flex;
+display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -29,6 +29,8 @@ const Post = ({ components }) => {
                 return;
         }
     };
+
+    console.log(components);
 
     return (
         <StyledPost>
