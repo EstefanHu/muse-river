@@ -4,7 +4,7 @@ import AppTemplate from '../../ui/templates/AppTemplate';
 import Button from '../../ui/atoms/shared/Button';
 
 const Profile = () => {
-    const { state: { user }, logout } = useGlobalState();
+    const { state: { auth: {user} }, logout } = useGlobalState();
 
     console.log(user);
 

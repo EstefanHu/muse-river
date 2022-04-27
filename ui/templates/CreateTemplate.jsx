@@ -12,14 +12,14 @@ const StyledCreateTemplate = styled.div`
 const CreateTemplate = ({ children }) => {
     const { state: { auth: { user } } } = useGlobalState();
 
-    if (!user) return <Loading />;
-
     return (
         <TemplateWrapper>
             <CreateHeader />
-            <StyledCreateTemplate>
-                {children}
-            </StyledCreateTemplate>
+            {user ? (
+                <StyledCreateTemplate>
+                    {children}
+                </StyledCreateTemplate>
+            ) : <Loading />}
         </TemplateWrapper>
     )
 };
