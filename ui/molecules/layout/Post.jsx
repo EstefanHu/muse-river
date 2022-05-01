@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import Title from '../../atoms/shared/composition/Title';
 import SectionHeader from '../../atoms/shared/composition/SectionHeader';
-import Text from '../../atoms/shared/composition/Text';
 import Paragraph from '../../atoms/shared/composition/Paragraph';
 import Picture from '../../atoms/shared/composition/Picture';
 
@@ -24,14 +23,8 @@ const Post = ({ title, composition }) => {
                     id={c.id}
                     text={c.body}
                 />;
-            case 'sectiotionHeader':
+            case 'sectionHeader':
                 return <SectionHeader
-                    key={c.id}
-                    id={c.id}
-                    text={c.body}
-                />
-            case 'text':
-                return <Text
                     key={c.id}
                     id={c.id}
                     text={c.body}
