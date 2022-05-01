@@ -6,6 +6,6 @@ const theRiver = ({ Component, pageProps }) => (
   <StateProvider>
     <Component {...pageProps} />
   </StateProvider>
-)
+);
 
 export default theRiver

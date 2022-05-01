@@ -9,12 +9,12 @@ const StyledLandingTemplate = styled(TemplateWrapper)`
     flex-direction: column;
 `;
 
-const LandingTemplate = () => {
+const LandingTemplate = ({ children }) => {
 
     return (
         <StyledLandingTemplate>
             <LandingHeader />
-            <h1>Hello world</h1>
+            {children}
             <Overlay />
         </StyledLandingTemplate>
     )

@@ -31,7 +31,7 @@ const MainCreate = () => {
                     setPostData={setPostData}
                 />;
             case 'review':
-                return <Post components={postData} />;
+                return <Post composition={postData} />;
             default:
                 return;
         };
@@ -41,7 +41,7 @@ const MainCreate = () => {
         e.preventDefault();
         switch (step) {
             case 'create':
-                console.log(postData);
+                console.log(`creating with ${postData}`);
                 return router.push(`/app/create?type=${type}&step=review`, undefined, { shallow: true });
             case 'review':
                 const postRef = await addDoc(collection(db, 'test'), postData);
